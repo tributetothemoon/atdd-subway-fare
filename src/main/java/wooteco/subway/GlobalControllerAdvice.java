@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import wooteco.subway.auth.exception.AuthorizationException;
 import wooteco.subway.dto.BindErrorResponse;
 import wooteco.subway.dto.ErrorResponse;
@@ -17,7 +17,7 @@ import wooteco.subway.path.exception.PathDomainException;
 import wooteco.subway.station.exception.StationDaoException;
 import wooteco.subway.station.exception.StationDomainException;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalControllerAdvice {
     private final Logger logger = LoggerFactory.getLogger(GlobalControllerAdvice.class);
 
