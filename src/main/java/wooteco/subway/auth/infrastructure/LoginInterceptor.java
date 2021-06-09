@@ -20,8 +20,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
         String credentials = AuthorizationExtractor.extract(request);
-        authService.validateToken(credentials);
-        return HandlerInterceptor.super.preHandle(request, response, handler);
+        return authService.validateToken(credentials);
     }
 
     private boolean isPreflight(HttpServletRequest request) {
