@@ -40,12 +40,9 @@ public class AuthService {
 
         String email = jwtTokenProvider.getPayload(credentials);
 
-        Optional<Member> memberOptional = memberDao.findByEmail(email);
-        if (memberOptional.isPresent()) {
-            Member member = memberOptional.get();
-            return new LoginMember(member.getId(), member.getEmail(), member.getAge());
-        }
-        return new LoginMember();
+        return memberDao.findByEmail(email)
+                .map(member -> new LoginMember(member.getId(), member.getEmail(), member.getAge()))
+                .orElseGet(LoginMember::new);
     }
 
     public boolean validateToken(String credentials) {
