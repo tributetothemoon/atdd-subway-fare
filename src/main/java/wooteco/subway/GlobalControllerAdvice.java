@@ -19,7 +19,7 @@ import wooteco.subway.station.exception.StationDomainException;
 
 @ControllerAdvice
 public class GlobalControllerAdvice {
-    Logger logger = LoggerFactory.getLogger(GlobalControllerAdvice.class);
+    private final Logger logger = LoggerFactory.getLogger(GlobalControllerAdvice.class);
 
     @ExceptionHandler(BindException.class)
     public ResponseEntity<ErrorResponse> resolveRequest(BindException e) {
