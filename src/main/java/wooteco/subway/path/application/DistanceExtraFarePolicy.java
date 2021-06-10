@@ -6,9 +6,9 @@ import wooteco.subway.path.exception.InvalidDistanceArgumentException;
 import java.util.Arrays;
 
 public enum DistanceExtraFarePolicy {
-    UNDER_10KM(0, 0.0),
-    UNDER_50KM(10, 5.0),
-    OVER_50KM(50, 8.0);
+    OF_10KM_OR_LESS(0, 0.0),
+    OF_OVER_10KM_AND_50KM_OR_LESS(10, 5.0),
+    OF_OVER_50KM(50, 8.0);
 
     private final int lowerBound;
     private final double chargeUnit;
